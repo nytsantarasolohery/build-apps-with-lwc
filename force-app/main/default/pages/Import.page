@@ -1,0 +1,22 @@
+<apex:page Controller="classTest">
+    <apex:form>
+        <apex:pageblock title="Read JSON" id="PB">
+            <apex:pageblocksection>
+                <apex:pageblocksectionitem>
+                    <apex:outputLabel value="Please Select JSON File:" />
+                    <apex:inputFile value="{!myfile}"> </apex:inputFile>
+                </apex:pageblocksectionitem>
+            </apex:pageblocksection>
+            <apex:pageblocksection title="Result of JSON" columns="1">
+                <apex:pageblocktable value="{!reports.code.configuration.factoryVCodes}" var="con">
+                    <apex:column value="{!con.code}" headerValue="Code" />
+                    <apex:column value="{!con.gattungID}" headerValue="Id" />
+                    <apex:column value="{!con.grossListPrice}" headerValue="Price" />
+                </apex:pageblocktable>
+            </apex:pageblocksection>
+            <center>
+                <apex:commandButton value="Read" action="{!doUpload}" />
+            </center>
+        </apex:pageblock>
+    </apex:form>
+</apex:page> 

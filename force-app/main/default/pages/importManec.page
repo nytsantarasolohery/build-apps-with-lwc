@@ -1,0 +1,41 @@
+<apex:page controller="ReadManecController">
+    <apex:form>        
+        <apex:pageblock title="Read XML" id="PB">
+          <!-- inputFile for uploading XML -->
+            <apex:pageblocksection >
+                <apex:pageblocksectionitem>
+                    <apex:outputLabel value="Please Select XML File:"/>  
+                    <apex:inputFile value="{!XMLBody}"> </apex:inputFile>
+                </apex:pageblocksectionitem>                
+            </apex:pageblocksection>
+            <!-- Table to show the XML Result -->
+            <apex:pageblocksection title="Result of Vcode" columns="1">
+                <apex:pageblocktable value="{!listVcode}" var="con">
+                    <apex:column value="{!con.Name}" headerValue="Name"/>
+                    <apex:column value="{!con.Species}" headerValue="Species"/>
+                    <apex:column value="{!con.Text}" headerValue="Text"/>
+                    <apex:column value="{!con.ListIcon}" headerValue="ListIcon"/>
+                </apex:pageblocktable>
+            </apex:pageblocksection>
+            <apex:pageblocksection title="Result of Config" columns="1">
+                <apex:pageblocktable value="{!listconfig}" var="con">
+                    <apex:column value="{!con.sumPriceEquipment}" headerValue="sumPriceEquipment"/>
+                    <apex:column value="{!con.VehicleGrossPrice}" headerValue="VehicleGrossPrice"/>
+                    <apex:column value="{!con.OfferPrice}" headerValue="OfferPrice"/>
+                </apex:pageblocktable>
+            </apex:pageblocksection>
+            <apex:pageblocksection title="Result of Vehicul" columns="1">
+                <apex:pageblocktable value="{!listBasicVehicule}" var="con">
+                    <apex:column value="{!con.VehicleName}" headerValue="VehicleName"/>
+                    <apex:column value="{!con.Variant}" headerValue="Variant"/>
+                    <apex:column value="{!con.VehicleType}" headerValue="VehicleType"/>
+                    <apex:column value="{!con.Wheelbase}" headerValue="Wheelbase"/>
+                </apex:pageblocktable>
+            </apex:pageblocksection>
+            <!-- Button for calling method of controller -->
+            <center>
+                <apex:commandButton value="Read" action="{!readXML}"/>
+            </center>
+        </apex:pageblock>    
+    </apex:form>    
+</apex:page>
